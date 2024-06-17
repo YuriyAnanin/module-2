@@ -1,13 +1,15 @@
 function mergeInPlace(list1, ...otherLists) {
+  const listCopy = Object.assign({}, list1)
+
   for (const otherList of otherLists) {
     for (const [key, value] of Object.entries(otherList)) {
-      if (list1[key] === undefined) {
-        list1[key] = value;
+      if (listCopy[key] === undefined) {
+        listCopy[key] = value;
       }
     }
   }
 
-  return list1;
+  return listCopy;
 }
 
 const list1 = { tv: 200, piano: 1000 };

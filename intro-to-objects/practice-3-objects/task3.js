@@ -1,22 +1,15 @@
-const relations = {
-    "Darth Vader": "father",
-    "Leia": "sister",
-    "Han": "brother in law",
-    "R2D2": "droid",
-};
+const volumeOfBox = (object) => {
+  let volume = 1
 
-function relationToLuke(name){ // мы проверяем по аргументу имя кем является по отношению
-    const relation = relations[name] || "unknown";
+  for(key in object){
+    volume *= object[key]
+  }
 
-    if (relation === "unknown") {
-        return "Luke, I don't know you"
-    } else {
-        return `Luke, I am your ${relation}`
-    }
-
+  return volume
 }
 
-console.log(relationToLuke("Darth Vader")) // "Luke, I am your father."
-console.log(relationToLuke("Leia")) // "Luke, I am your sister."
-console.log(relationToLuke("Han")) // "Luke, I am your brother in law."
-console.log(relationToLuke("han")) // "Luke, I am your brother in law."
+console.log(volumeOfBox({ width: 2, length: 5, height: 1 })); // 10
+
+console.log(volumeOfBox({ width: 4, length: 2, height: 2 })); // 16
+
+console.log(volumeOfBox({ width: 2, length: 3, height: 5 })); // 30

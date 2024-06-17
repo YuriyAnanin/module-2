@@ -1,18 +1,17 @@
-// before the call
+const multiplyNumeric = (object) => {
+  for (key in object) {
+    if (!isNaN(object[key])) {
+      object[key] *= 2
+    }
+  }
+}
+
 let menu = {
-    width: 200,
-    height: 300,
-    title: "My menu"
+  width: 200,
+  height: 300,
+  title: "My menu",
 };
 
-
-function multiplyNumeric(obj){
-    for (let key in obj) {
-        if (typeof obj[key] == 'number'){
-           obj[key] *= 2;
-        }
-    }
-}
 multiplyNumeric(menu);
 
 // after the call
